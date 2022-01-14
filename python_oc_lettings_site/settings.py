@@ -26,6 +26,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'python_oc_lettings_site',
+    'lettings',
+    'profiles',
 ]
 
 MIDDLEWARE = [
@@ -38,7 +41,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'oc_lettings_site.urls'
+ROOT_URLCONF = 'python_oc_lettings_site.urls'
 
 TEMPLATES = [
     {
@@ -56,7 +59,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'oc_lettings_site.wsgi.application'
+WSGI_APPLICATION = 'python_oc_lettings_site.wsgi.application'
 
 
 # Database

@@ -15,11 +15,25 @@ class LettingViewTest(TestCase):
         response = self.client.get(reverse('lettings_index'), follow_redirects=True)
         self.assertEqual(response.status_code, 200)
 
-    def test_should_find_letting(self):
+    def test_should_find_title_in_lettings_index(self):
         response = self.client.get(reverse('lettings_index'), follow_redirects=True)
         assert response.status_code == 200
         data = response.content.decode()
-        text = "Joshua Tree Green Haus"
+        text = "Lettings"
+        assert text in data
+
+    def test_should_find_letting_in_lettings_index(self):
+        response = self.client.get(reverse('lettings_index'), follow_redirects=True)
+        assert response.status_code == 200
+        data = response.content.decode()
+        text = "Joshua Tree Green Haus /w Hot Tub"
+        assert text in data
+
+    def test_should_find_title_in_address(self):
+        response = self.client.get(reverse('letting', args=[1]), follow_redirects=True)
+        assert response.status_code == 200
+        data = response.content.decode()
+        text = "Joshua Tree Green Haus /w Hot Tub"
         assert text in data
 
     def test_should_find_address(self):

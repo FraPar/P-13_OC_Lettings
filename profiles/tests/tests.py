@@ -15,8 +15,22 @@ class ProfileViewTest(TestCase):
         response = self.client.get(reverse('profiles_index'), follow_redirects=True)
         self.assertEqual(response.status_code, 200)
 
+    def test_should_find_title_in_profiles_index(self):
+        response = self.client.get(reverse('profiles_index'), follow_redirects=True)
+        assert response.status_code == 200
+        data = response.content.decode()
+        text = "Profiles"
+        assert text in data
+
     def test_should_find_profiles(self):
         response = self.client.get(reverse('profiles_index'), follow_redirects=True)
+        assert response.status_code == 200
+        data = response.content.decode()
+        text = "HeadlinesGazer"
+        assert text in data
+
+    def test_should_find_title_in_profiles_index(self):
+        response = self.client.get(reverse('profile', args=["HeadlinesGazer"]), follow_redirects=True)
         assert response.status_code == 200
         data = response.content.decode()
         text = "HeadlinesGazer"

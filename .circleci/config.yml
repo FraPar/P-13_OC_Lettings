@@ -30,13 +30,28 @@ jobs:
     steps:
       - checkout
       - python/install-packages:
-          pkg-manager: pip
-          # app-dir: ~/project/package-directory/  # If you're requirements.txt isn't in the root directory.
-          # pip-dependency-file: test-requirements.txt  # if you have a different name for your requirements file, maybe one that combines your runtime and test requirements.
+            pkg-manager: pip
+            # app-dir: ~/project/package-directory/  # If you're requirements.txt isn't in the root directory.
+            # pip-dependency-file: test-requirements.txt  # if you have a different name for your requirements file, maybe one that combines your runtime and test requirements.
       - run:
-          name: Run tests
-          # This assumes pytest is installed via the install-package step above
-          command: pytest
+            name: Run tests
+            # This assumes pytest is installed via the install-package step above
+            command: pytest
+
+  containerization: # This is the name of the job, feel free to change it to better match what you're trying to do!
+      steps:
+      - checkout
+      - run:
+            name : Build Docker image
+            command : docker build -t p-13_oc_lettings .
+      - run:
+            name : Push Docker Image
+            command : 
+              docker tag frapar/p-13_oc_lettings:latest frapar/p-13_oc_lettings:latest
+              docker push frapar/p-13_oc_lettings:latest
+              
+  #deploy-production:
+  #    - image: cimg/python:3.9
 
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
@@ -45,3 +60,7 @@ workflows:
     # Inside the workflow, you define the jobs you want to run.
     jobs:
       - build-and-test
+    #  - containerization
+    #  - deploy-production
+
+

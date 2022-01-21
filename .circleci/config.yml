@@ -52,7 +52,7 @@ jobs:
             name : Build Docker image
             command : docker build -t p-13_oc_lettings .
       - run:
-            # working on manual push
+            # working on manual pushs
             name : Push Docker Image
             uses: docker/login-action@v1
             with:

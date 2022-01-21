@@ -38,8 +38,8 @@ jobs:
             # This assumes pytest is installed via the install-package step above
             command: pytest
 
-  containerization: # This is the name of the job, feel free to change it to better match what you're trying to do!
-      steps:
+  build-and-push-on-docker: # This is the name of the job, feel free to change it to better match what you're trying to do!
+    steps:
       - checkout
       - run:
             name : Build Docker image
@@ -60,7 +60,7 @@ workflows:
     # Inside the workflow, you define the jobs you want to run.
     jobs:
       - build-and-test
-      - containerization
+      - build-and-push-on-docker
     #  - deploy-production
 
 

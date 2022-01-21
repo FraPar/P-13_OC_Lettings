@@ -39,6 +39,7 @@ jobs:
             command: pytest
 
   build-and-push-on-docker: # This is the name of the job, feel free to change it to better match what you're trying to do!
+    executor: my-machine
     steps:
       - checkout
       - run:

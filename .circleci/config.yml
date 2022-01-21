@@ -55,7 +55,7 @@ jobs:
             # working on manual push
             name : Push Docker Image
             command : |
-              echo $DOCKER_TOKEN | docker login -u $DOCKER_USER --password-stdin
+              docker login -u $DOCKER_USER --password-stdin
               docker tag p-13_oc_lettings:latest frapar/p-13_oc_lettings:latest
               docker push frapar/p-13_oc_lettings:latest
   

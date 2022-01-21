@@ -54,11 +54,9 @@ jobs:
       - run:
             # working on manual push
             name : Push Docker Image
-            uses: docker/login-action@v1
-            with:
-              username: ${{ DOCKERHUB_USER.DOCKERHUB_USERNAME }}
-              password: ${{ DOCKERHUB_USER.DOCKERHUB_PASSWORD }}
             command : |
+              docker login -u frapar
+              62900a8f-2c57-40c7-a31f-4f18c9ea6216
               docker tag p-13_oc_lettings:latest frapar/p-13_oc_lettings:latest
               docker push frapar/p-13_oc_lettings:latest
   

@@ -52,7 +52,7 @@ jobs:
             name : Build Docker image
             command : docker build -t p-13_oc_lettings .
       - run:
-            # working on manual push
+            # working on manual pushs
             name : Push Docker Image
             command : |
               docker login -u frapar -p 62900a8f-2c57-40c7-a31f-4f18c9ea6216

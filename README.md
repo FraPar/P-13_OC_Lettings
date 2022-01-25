@@ -137,8 +137,6 @@ Nous permet de stocker en ligne l'image docker de notre application.
 
 ## Heroku :
 
-[L'application sur Heroku](https://oc-lettings-777.herokuapp.com/)  
-
-Heroku heberge notre application.
+[L'application sur Heroku](https://oc-lettings-777.herokuapp.com/) qui héberge notre application.
 
 - Nom de l'application : oc-lettings-777

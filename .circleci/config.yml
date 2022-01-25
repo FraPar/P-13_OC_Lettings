@@ -73,13 +73,14 @@ workflows:
   commit: # This is the name of the workflow, feel free to change it to better match your workflow.
     # Inside the workflow, you define the jobs you want to run.
     jobs:
-      - build-and-test
-      - build-and-push-on-docker
-        # requires:
-          # - build-and-test # only run deploy-via-git job if the build job has completed
-      - deploy
-        # requires:
-          # - build-and-push-on-docker
-        # filters:
-          # branches:
-            # only: master # only run deploy-via-git job on main branch
+      - build-and-test:
+          filters:
+            branches:
+              only:
+                - master
+      - build-and-push-on-docker:
+          requires:
+            - build-and-test
+      - deploy:
+          requires:
+            - build-and-push-on-docker

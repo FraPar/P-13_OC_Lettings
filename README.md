@@ -75,3 +75,76 @@ Utilisation de PowerShell, comme ci-dessus sauf :
 
 - Pour activer l'environnement virtuel, `.\venv\Scripts\Activate.ps1` 
 - Remplacer `which <my-command>` par `(Get-Command <my-command>).Path`
+
+---
+
+## Déploiement
+
+**Pré-requis :**
+
+- Un compte/acces Github
+- Un compte/acces CircleCi
+- Un Compte/acces DockerHub
+- Un Compte/Acces Heroku
+
+---
+
+### Pipeline CircleCi
+
+#### Pour le commit sur une branche autre que master :
+
+- lance le workflow 'commit_on_other_branch' qui éxecute le job 'build-and-test':
+    - lance les tests via pytest
+    - contrôle le linting PEP8 via Flake8
+
+#### Pour le commit sur la branche master : 
+
+- le workflow commit_on_master va se lancer :
+     - le job 'build-and-test' qui :
+        - lance les tests via pytest,
+        - contrôle le linting PEP8 via Flake8,
+     - le job 'build-and-push-on-docker' :   
+        - qui crée l'image docker et l'upload sur le docker hub et le push,
+     - le job 'deploy' :      
+        - lance le build sur heroku via Git et le déploie.
+
+---
+
+## Github :
+
+[Github Repository](https://github.com/FraPar/P-13_OC_Lettings) permet de faire le versionning de notre projet/application.
+
+---
+
+## CircleCi :
+
+Afin d'utiliser correctement CircleCI, il vous faudra :
+Créer les variables d'environnement au niveau du projet :
+  - Dans **Projets**, cliquez sur le menu de votre projet,
+  - Cliquez sur `Project Settings`
+  - Cliquez sur `Environment Variables`  
+  - Cliquez sur `Add Environment Variables`  
+
+
+|   Nom des Variables  |   Description   |   Valeurs à renseigner   |
+|---    |---   |---    |
+|   DOCKER_USER   |   User Docker Hub   |   `frapar`   |
+|   DOCKER_TOKEN   |   Token Dockerhub ou Mdp   |   `62900a8f-2c57-40c7-a31f-4f18c9ea6216`   |
+| HEROKU_APP_NAME | Le nom de l'application | oc-lettings-777 |
+|   HEROKU_API_KEY |  API Token Heroku  |   `443503a9-39d0-45a4-ba3b-51821d2d9345`   |
+---
+
+## Docker Hub :
+
+[Docker-Hub frapar Repository](https://hub.docker.com/repository/docker/frapar/p-13_oc_lettings) permet de stocker en ligne l'image docker de notre application.  
+
+- Nom de l'application : p13-oc-lettings
+- Compte Hub Docker : frapar
+
+---
+
+## Heroku :
+[L'application sur Heroku](https://oc-lettings-777.herokuapp.com/)  
+
+Heroku permet d'heberger notre application.
+En cas de necessité ou en cas de suppression, il faut créer l'application 'oc-lettings-777'.  

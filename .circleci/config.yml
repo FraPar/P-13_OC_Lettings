@@ -80,6 +80,6 @@ workflows:
       - deploy
         # requires:
           # - build-and-push-on-docker
-        filters:
-          branches:
-            only: master # only run deploy-via-git job on main branch
+        # filters:
+          # branches:
+            # only: master # only run deploy-via-git job on main branch

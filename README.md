@@ -2,6 +2,8 @@
 
 Site web d'Orange County Lettings
 
+---
+
 ## Développement local
 
 ### Prérequis
@@ -13,7 +15,7 @@ Site web d'Orange County Lettings
 
 Dans le reste de la documentation sur le développement local, il est supposé que la commande `python` de votre OS shell exécute l'interpréteur Python ci-dessus (à moins qu'un environnement virtuel ne soit activé).
 
-### macOS / Linux
+## macOS / Linux
 
 #### Cloner le repository
 
@@ -69,7 +71,7 @@ Dans le reste de la documentation sur le développement local, il est supposé q
 - Aller sur `http://localhost:8000/admin`
 - Connectez-vous avec l'utilisateur `admin`, mot de passe `Abc1234!`
 
-### Windows
+## Windows
 
 Utilisation de PowerShell, comme ci-dessus sauf :
 

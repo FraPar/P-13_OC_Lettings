@@ -9,8 +9,8 @@ orbs:
   # Orb commands and jobs help you with common scripting around a language/tool
   # so you dont have to copy and paste it everywhere.
   # See the orb documentation here: https://circleci.com/developer/orbs/orb/circleci/python
-  python: circleci/python@1.2
-
+  python: circleci/python@1.5
+  heroku: circleci/heroku@1.2.6
   # Definition of the machine directory
 executors:
   this-machine:
@@ -59,17 +59,25 @@ jobs:
               docker tag p-13_oc_lettings:latest frapar/p-13_oc_lettings:latest
               docker push frapar/p-13_oc_lettings:latest
   
-  #deploy-production:
-  #    - image: cimg/python:3.9
+  deploy:
+    executor: heroku/default
+    steps:
+      - git push heroku master
 
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
 workflows:
-  sample: # This is the name of the workflow, feel free to change it to better match your workflow.
+  commit: # This is the name of the workflow, feel free to change it to better match your workflow.
     # Inside the workflow, you define the jobs you want to run.
     jobs:
       - build-and-test
+        filters:
+          branches:
+            only:
+              - master
       - build-and-push-on-docker
-    #  - deploy-production
-
-
+        requires:
+          - build-and-test
+      - deploy
+        requires:
+          - build-and-push-on-docker

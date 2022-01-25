@@ -70,8 +70,7 @@ jobs:
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
 workflows:
-  commit: # This is the name of the workflow, feel free to change it to better match your workflow.
-    # Inside the workflow, you define the jobs you want to run.
+  commit_on_master:
     jobs:
       - build-and-test:
           filters:
@@ -84,3 +83,11 @@ workflows:
       - deploy:
           requires:
             - build-and-push-on-docker
+  commit_on_toher_branch:
+    jobs:
+      - build-and-test:
+          filters:
+            branches:
+              ignore:
+                - master
+

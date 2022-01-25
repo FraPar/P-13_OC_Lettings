@@ -130,7 +130,7 @@ Créez les variables d'environnement au niveau du projet :
 
 ## Docker Hub :
 
-Nous permet de stocker en ligne l'image docker de notre application.  
+Nous permet de stocker en ligne l'[image docker](https://hub.docker.com/repository/docker/frapar/p-13_oc_lettings) de notre application.  
 
 - Nom de l'application : p13-oc-lettings
 - Compte Hub Docker : frapar

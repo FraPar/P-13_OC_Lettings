@@ -55,21 +55,15 @@ jobs:
             # working on manual pushs
             name : Push Docker Image
             command : |
-              docker login -u frapar -p 62900a8f-2c57-40c7-a31f-4f18c9ea6216
-              docker tag p-13_oc_lettings:latest frapar/p-13_oc_lettings:latest
-              docker push frapar/p-13_oc_lettings:latest
+              docker login -u $DOCKER_USER -p $DOCKER_TOKEN
+              docker tag p-13_oc_lettings:latest $DOCKER_USER/p-13_oc_lettings:latest
+              docker push $DOCKER_USER/p-13_oc_lettings:latest
   
   deploy:
     executor: heroku/default
     steps:
       - checkout
       - heroku/install
-      - run: heroku maintenance:on --app $HEROKU_APP_NAME
-      - run: heroku config:set BUILD_NUMBER=$CIRCLE_BUILD_NUM -a $HEROKU_APP_NAME
-      - run: heroku config:set SECRET_KEY=$SECRET_KEY -a $HEROKU_APP_NAME
-      - run: heroku config:set SENTRY_DSN=$SENTRY_DSN -a $HEROKU_APP_NAME
-      - run: heroku stack:set heroku-20 -a $HEROKU_APP_NAME
-      - run: heroku maintenance:off --app $HEROKU_APP_NAME
       - heroku/deploy-via-git:
           force: true
 

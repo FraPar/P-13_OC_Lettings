@@ -87,8 +87,6 @@ Utilisation de PowerShell, comme ci-dessus sauf :
 - Un Compte/acces DockerHub
 - Un Compte/Acces Heroku
 
----
-
 ### Pipeline CircleCi
 
 #### Pour le commit sur une branche autre que master :
@@ -108,13 +106,9 @@ Utilisation de PowerShell, comme ci-dessus sauf :
      - le job 'deploy' :      
         - lance le build sur heroku via Git et le déploie.
 
----
-
 ## Github :
 
 [Github Repository](https://github.com/FraPar/P-13_OC_Lettings) permet de faire le versionning de notre projet/application.
-
----
 
 ## CircleCi :
 
@@ -132,7 +126,6 @@ Créer les variables d'environnement au niveau du projet :
 |   DOCKER_TOKEN   |   Token Dockerhub ou Mdp   |   `62900a8f-2c57-40c7-a31f-4f18c9ea6216`   |
 | HEROKU_APP_NAME | Le nom de l'application | oc-lettings-777 |
 |   HEROKU_API_KEY |  API Token Heroku  |   `443503a9-39d0-45a4-ba3b-51821d2d9345`   |
----
 
 ## Docker Hub :
 
@@ -141,9 +134,8 @@ Créer les variables d'environnement au niveau du projet :
 - Nom de l'application : p13-oc-lettings
 - Compte Hub Docker : frapar
 
----
-
 ## Heroku :
+
 [L'application sur Heroku](https://oc-lettings-777.herokuapp.com/)  
 
 Heroku permet d'heberger notre application.

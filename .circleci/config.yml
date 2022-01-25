@@ -64,8 +64,6 @@ jobs:
     steps:
       - checkout
       - heroku/install
-      command :
-        heroku login 4116c10d-0bf2-4b25-b413-16a6b3d24312
       - heroku/deploy-via-git:
           force: true
 

@@ -75,4 +75,11 @@ workflows:
     jobs:
       - build-and-test
       - build-and-push-on-docker
+        requires:
+          - build-and-test # only run deploy-via-git job if the build job has completed
       - deploy
+        requires:
+          - build-and-push-on-docker
+        filters:
+          branches:
+            only: master # only run deploy-via-git job on main branch

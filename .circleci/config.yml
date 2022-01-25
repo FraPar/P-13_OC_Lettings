@@ -58,7 +58,18 @@ jobs:
               docker login -u frapar -p 62900a8f-2c57-40c7-a31f-4f18c9ea6216
               docker tag p-13_oc_lettings:latest frapar/p-13_oc_lettings:latest
               docker push frapar/p-13_oc_lettings:latest
-
+  
+  deploy:
+    executor: heroku/default
+    steps:
+      - checkout
+      - heroku/install
+      - run:
+          command: >
+            echo "The command above installs Heroku, the command below deploys.
+            What you do inbetween is up to you!"
+      - heroku/deploy-via-git:
+          force: true
 
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
@@ -68,4 +79,4 @@ workflows:
     jobs:
       - build-and-test
       - build-and-push-on-docker
-      - heroku/deploy-via-git
+      - deploy

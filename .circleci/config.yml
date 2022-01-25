@@ -72,8 +72,4 @@ workflows:
     jobs:
       - build-and-test
       - build-and-push-on-docker
-        requires:
-          - build-and-test
       - deploy
-        requires:
-          - build-and-push-on-docker

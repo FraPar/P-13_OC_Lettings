@@ -1,6 +1,7 @@
 from django.test import TestCase
 from django.urls import reverse
 
+
 class ProfileViewTest(TestCase):
 
     fixtures = [
@@ -29,15 +30,17 @@ class ProfileViewTest(TestCase):
         text = "HeadlinesGazer"
         assert text in data
 
-    def test_should_find_title_in_profiles_index(self):
-        response = self.client.get(reverse('profile', args=["HeadlinesGazer"]), follow_redirects=True)
+    def test_should_find_title_detailed_profiles_index(self):
+        response = self.client.get(reverse(
+            'profile', args=["HeadlinesGazer"]), follow_redirects=True)
         assert response.status_code == 200
         data = response.content.decode()
         text = "HeadlinesGazer"
         assert text in data
 
     def test_should_find_profiles_details(self):
-        response = self.client.get(reverse('profile', args=["HeadlinesGazer"]), follow_redirects=True)
+        response = self.client.get(reverse(
+            'profile', args=["HeadlinesGazer"]), follow_redirects=True)
         assert response.status_code == 200
         data = response.content.decode()
         text = "First name: Jamie"

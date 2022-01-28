@@ -2,7 +2,7 @@
 FROM python:3.11.0a4-alpine3.15
 MAINTAINER francois.parenti.gaming@gmail.com
 
-ENV HOME=/app
+ENV HOME=/
 
 # create directory for the app user
 RUN mkdir -p $HOME

@@ -2,18 +2,21 @@
 FROM python:3.11.0a4-alpine3.15
 MAINTAINER francois.parenti.gaming@gmail.com
 
-ENV HOME=/app
+# set the working directory in the container
+WORKDIR /django
 
-# create directory for the app user
-RUN mkdir -p $HOME
+# copy the dependencies file to the working directory
+COPY requirements.txt /django
 
-# set work directory
-WORKDIR $HOME
-
+# install dependencies
+RUN pip install -r requirements.txt
 
 RUN pip install --upgrade pip
 ADD requirements*.txt .
 RUN pip install -r requirements.txt
+
+# copy the content of the local src directory to the working directory
+COPY . /django
 
 EXPOSE 8000
 CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]

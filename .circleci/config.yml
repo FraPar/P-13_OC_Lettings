@@ -65,7 +65,7 @@ jobs:
       - checkout
       - heroku/install
       # - run : heroku config:set SENTRY_DSN=$SENTRY_DSN 
-      - run heroku addons:create deployhooks:http --url=https://sentry.io/api/hooks/release/heroku/6173060/579802bc92711d027404d8d9ef0da873c3b04975b72e966266a7f1863e7e22e5/
+      # - run heroku addons:create deployhooks:http --url=https://sentry.io/api/hooks/release/heroku/6173060/579802bc92711d027404d8d9ef0da873c3b04975b72e966266a7f1863e7e22e5/
       - heroku/deploy-via-git:
           force: true
 

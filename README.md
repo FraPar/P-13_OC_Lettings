@@ -127,6 +127,7 @@ Créez les variables d'environnement au niveau du projet :
 |   DOCKER_TOKEN   |   Token Docker Hub   |   `62900a8f-2c57-40c7-a31f-4f18c9ea6216`   |
 | HEROKU_APP_NAME | Nom application Heroku | oc-lettings-777 |
 |   HEROKU_API_KEY |  API Token Heroku  |   `443503a9-39d0-45a4-ba3b-51821d2d9345`   |
+|   SENTRY_DSN |  URL for Sentry  |   `https://7ab706eaa159487f8098cb592a12d5ef@o1129309.ingest.sentry.io/6173060`   |
 
 ## Docker Hub :
 

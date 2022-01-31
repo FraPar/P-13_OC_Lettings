@@ -64,6 +64,7 @@ jobs:
     steps:
       - checkout
       - heroku/install
+      - heroku config:set SENTRY_DSN=$SENTRY_DSN 
       - heroku/deploy-via-git:
           force: true
 

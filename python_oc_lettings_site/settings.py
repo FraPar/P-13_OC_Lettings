@@ -1,12 +1,6 @@
 import os
 from pathlib import Path
 import sentry_sdk
-import environ
-
-env = environ.Env(
-    # set casting, default value
-    DEBUG=(bool, False)
-)
 
 sentry_sdk.init(
     "https://7ab706eaa159487f8098cb592a12d5ef@o1129309.ingest.sentry.io/6173060",
@@ -24,12 +18,13 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = env('SECRET_KEY')
+SECRET_KEY = 'fp$9^593hsriajg$_%=5trot9g!1qa@ew(o-1#@=&4%=hp46(s'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = env.list('ALLOWED_HOSTS')
+ALLOWED_HOSTS = ['.herokuapp.com', '127.0.0.1']
+
 
 # Application definition
 

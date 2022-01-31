@@ -3,8 +3,6 @@ from pathlib import Path
 import sentry_sdk
 
 sentry_sdk.init(
-    "https://7ab706eaa159487f8098cb592a12d5ef@o1129309.ingest.sentry.io/6173060",
-
     # Set traces_sample_rate to 1.0 to capture 100%
     # of transactions for performance monitoring.
     # We recommend adjusting this value in production.

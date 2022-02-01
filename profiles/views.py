@@ -15,7 +15,7 @@ def index(request):
 # laoreet neque quis, pellentesque dui. Nullam facilisis pharetra vulputate.
 # Sed tincidunt, dolor id facilisis fringilla, eros leo tristique lacus, it.
 # Nam aliquam dignissim congue. Pellentesque habitant morbi tristique
-# senectus et netus et males
+# senectus et netus et maless
 def profile(request, username):
     profile = Profile.objects.get(user__username=username)
     context = {'profile': profile}

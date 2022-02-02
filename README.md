@@ -137,7 +137,6 @@ Nous permet de stocker en ligne l'[image docker](https://hub.docker.com/reposito
 - Compte Hub Docker : frapar
 
 Pour lancer l'image localement, il faut utiliser la commande suivante:
-`docker run frapar/p-13_oc_lettings`
 `docker run --pull always -p 8000:8000 frapar/p-13_oc_lettings`
 
 ## Heroku :
@@ -145,3 +144,5 @@ Pour lancer l'image localement, il faut utiliser la commande suivante:
 [L'application sur Heroku](https://oc-lettings-777.herokuapp.com/) qui héberge notre application.
 
 - Nom de l'application : oc-lettings-777
+
+Si l'application n'est pas créée sur le compte, la créer pour faire fonctionner le déploiement.

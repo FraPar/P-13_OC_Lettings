@@ -44,7 +44,7 @@ jobs:
             # This assumes pytest is installed via the install-package step above
             command: pytest
 
-  build-and-push-on-docker: # This is the name of the job, feels free to change it to better match what you're trying to do!
+  build-and-push-on-docker: # This is the name of the job, feels free to change it to better match what you're trying to do
     executor: this-machine
     steps:
       - checkout
